@@ -2,25 +2,31 @@ import math
 
 # Line 클래스 정의(객체 생성)
 class line:
-    __length = 0
-    # 생성자를 통해 초기 __length 값 지정 
-    def __init__(self, length=0):
-        self.__length = length
-    # __length에 인자로 받은 값 저장
-    def set_length(self, length):
-        self.__length = length
-    # __length의 값 반환 
+    __width = 0
+    __height = 0
+    # 생성자를 통해 초기 __width, __height 지정 
+    def __init__(self, width, height):
+        self.__width = width
+        self.__height = height
+    # __width, __height 에 인자로 받은 값 저장
+    def set_length(self, width, height):
+        self.__width = width
+        self.__height = height
+    # __width, __height의 값 반환 
     def get_length(self):
-        return self.__length
+        return self.__width, self.__height
 
-# length를 매개 변수로 받아 정사각형의 넓이를 반환하는 함수
-def area_square(length):
-    return length ** 2
+# 길이를 입력받아 직사각형 넓이 구하기
+def area_rectangle(width, height):
+    if width <= 0 or height <= 0: raise ValueError
+    return width * height
 
-# length를 매개변수로 받아 원의 넓이를 반환하는 함수
-def area_circle(length):
-    return length ** 2 * math.pi
+# 길이를 입력받아 타원의 넓이 구하기
+def area_ellipse(width, height):
+    if width <= 0 or height <= 0: raise ValueError
+    return width * height * math.pi
 
-# length를 매개변수로 받아 정삼각형의 넓이를 반환하는 ㅎㅁ수
-def area_regular_triangle(length):
-    return math.sqrt(3) / 4 * length ** 2
+# 길이를 입력받아 직각삼각형 넓이 구하기
+def area_right_triangle(width, height):
+    if width <= 0 or height <= 0: raise ValueError
+    return width * height / 2
